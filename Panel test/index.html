@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Canvas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="controls-panel">
+        <h3>CSS Size Controls</h3>
+        
+        <div class="control-group">
+            <h4>Panel Container</h4>
+            <div class="control-row">
+                <label>Width:</label>
+                <input type="text" id="container-width">
+                <button onclick="applyStyle('panel-container', 'width', document.getElementById('container-width').value)">Apply</button>
+                <button onclick="resetStyle('container-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Width:</label>
+                <input type="text" id="container-min-width">
+                <button onclick="applyStyle('panel-container', 'min-width', document.getElementById('container-min-width').value)">Apply</button>
+                <button onclick="resetStyle('container-min-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Width:</label>
+                <input type="text" id="container-max-width">
+                <button onclick="applyStyle('panel-container', 'max-width', document.getElementById('container-max-width').value)">Apply</button>
+                <button onclick="resetStyle('container-max-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Height:</label>
+                <input type="text" id="container-height">
+                <button onclick="applyStyle('panel-container', 'height', document.getElementById('container-height').value)">Apply</button>
+                <button onclick="resetStyle('container-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Height:</label>
+                <input type="text" id="container-min-height">
+                <button onclick="applyStyle('panel-container', 'min-height', document.getElementById('container-min-height').value)">Apply</button>
+                <button onclick="resetStyle('container-min-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Height:</label>
+                <input type="text" id="container-max-height">
+                <button onclick="applyStyle('panel-container', 'max-height', document.getElementById('container-max-height').value)">Apply</button>
+                <button onclick="resetStyle('container-max-height')">Reset</button>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <h4>Panel 1 - Datasource</h4>
+            <div class="control-row">
+                <label>Width:</label>
+                <input type="text" id="panel1-width">
+                <button onclick="applyStyle('datasource', 'width', document.getElementById('panel1-width').value)">Apply</button>
+                <button onclick="resetStyle('panel1-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Width:</label>
+                <input type="text" id="panel1-min-width">
+                <button onclick="applyStyle('datasource', 'min-width', document.getElementById('panel1-min-width').value)">Apply</button>
+                <button onclick="resetStyle('panel1-min-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Width:</label>
+                <input type="text" id="panel1-max-width">
+                <button onclick="applyStyle('datasource', 'max-width', document.getElementById('panel1-max-width').value)">Apply</button>
+                <button onclick="resetStyle('panel1-max-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Height:</label>
+                <input type="text" id="panel1-height">
+                <button onclick="applyStyle('datasource', 'height', document.getElementById('panel1-height').value)">Apply</button>
+                <button onclick="resetStyle('panel1-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Height:</label>
+                <input type="text" id="panel1-min-height">
+                <button onclick="applyStyle('datasource', 'min-height', document.getElementById('panel1-min-height').value)">Apply</button>
+                <button onclick="resetStyle('panel1-min-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Height:</label>
+                <input type="text" id="panel1-max-height">
+                <button onclick="applyStyle('datasource', 'max-height', document.getElementById('panel1-max-height').value)">Apply</button>
+                <button onclick="resetStyle('panel1-max-height')">Reset</button>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <h4>Panel 2 - Configure</h4>
+            <div class="control-row">
+                <label>Width:</label>
+                <input type="text" id="panel2-width">
+                <button onclick="applyStyle('configure', 'width', document.getElementById('panel2-width').value)">Apply</button>
+                <button onclick="resetStyle('panel2-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Width:</label>
+                <input type="text" id="panel2-min-width">
+                <button onclick="applyStyle('configure', 'min-width', document.getElementById('panel2-min-width').value)">Apply</button>
+                <button onclick="resetStyle('panel2-min-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Width:</label>
+                <input type="text" id="panel2-max-width">
+                <button onclick="applyStyle('configure', 'max-width', document.getElementById('panel2-max-width').value)">Apply</button>
+                <button onclick="resetStyle('panel2-max-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Height:</label>
+                <input type="text" id="panel2-height">
+                <button onclick="applyStyle('configure', 'height', document.getElementById('panel2-height').value)">Apply</button>
+                <button onclick="resetStyle('panel2-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Height:</label>
+                <input type="text" id="panel2-min-height">
+                <button onclick="applyStyle('configure', 'min-height', document.getElementById('panel2-min-height').value)">Apply</button>
+                <button onclick="resetStyle('panel2-min-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Height:</label>
+                <input type="text" id="panel2-max-height">
+                <button onclick="applyStyle('configure', 'max-height', document.getElementById('panel2-max-height').value)">Apply</button>
+                <button onclick="resetStyle('panel2-max-height')">Reset</button>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <h4>Panel 3 - Visualization</h4>
+            <div class="control-row">
+                <label>Width:</label>
+                <input type="text" id="panel3-width">
+                <button onclick="applyStyle('visualization', 'width', document.getElementById('panel3-width').value)">Apply</button>
+                <button onclick="resetStyle('panel3-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Width:</label>
+                <input type="text" id="panel3-min-width">
+                <button onclick="applyStyle('visualization', 'min-width', document.getElementById('panel3-min-width').value)">Apply</button>
+                <button onclick="resetStyle('panel3-min-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Width:</label>
+                <input type="text" id="panel3-max-width">
+                <button onclick="applyStyle('visualization', 'max-width', document.getElementById('panel3-max-width').value)">Apply</button>
+                <button onclick="resetStyle('panel3-max-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Height:</label>
+                <input type="text" id="panel3-height">
+                <button onclick="applyStyle('visualization', 'height', document.getElementById('panel3-height').value)">Apply</button>
+                <button onclick="resetStyle('panel3-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Height:</label>
+                <input type="text" id="panel3-min-height">
+                <button onclick="applyStyle('visualization', 'min-height', document.getElementById('panel3-min-height').value)">Apply</button>
+                <button onclick="resetStyle('panel3-min-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Height:</label>
+                <input type="text" id="panel3-max-height">
+                <button onclick="applyStyle('visualization', 'max-height', document.getElementById('panel3-max-height').value)">Apply</button>
+                <button onclick="resetStyle('panel3-max-height')">Reset</button>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <h4>Visualization Card</h4>
+            <div class="control-row">
+                <label>Width:</label>
+                <input type="text" id="viz-card-width">
+                <button onclick="applyStyle('visualization-card', 'width', document.getElementById('viz-card-width').value)">Apply</button>
+                <button onclick="resetStyle('viz-card-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Width:</label>
+                <input type="text" id="viz-card-min-width">
+                <button onclick="applyStyle('visualization-card', 'min-width', document.getElementById('viz-card-min-width').value)">Apply</button>
+                <button onclick="resetStyle('viz-card-min-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Width:</label>
+                <input type="text" id="viz-card-max-width">
+                <button onclick="applyStyle('visualization-card', 'max-width', document.getElementById('viz-card-max-width').value)">Apply</button>
+                <button onclick="resetStyle('viz-card-max-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Height:</label>
+                <input type="text" id="viz-card-height">
+                <button onclick="applyStyle('visualization-card', 'height', document.getElementById('viz-card-height').value)">Apply</button>
+                <button onclick="resetStyle('viz-card-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Height:</label>
+                <input type="text" id="viz-card-min-height">
+                <button onclick="applyStyle('visualization-card', 'min-height', document.getElementById('viz-card-min-height').value)">Apply</button>
+                <button onclick="resetStyle('viz-card-min-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Height:</label>
+                <input type="text" id="viz-card-max-height">
+                <button onclick="applyStyle('visualization-card', 'max-height', document.getElementById('viz-card-max-height').value)">Apply</button>
+                <button onclick="resetStyle('viz-card-max-height')">Reset</button>
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <h4>Table Card</h4>
+            <div class="control-row">
+                <label>Width:</label>
+                <input type="text" id="table-card-width">
+                <button onclick="applyStyle('table-card', 'width', document.getElementById('table-card-width').value)">Apply</button>
+                <button onclick="resetStyle('table-card-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Width:</label>
+                <input type="text" id="table-card-min-width">
+                <button onclick="applyStyle('table-card', 'min-width', document.getElementById('table-card-min-width').value)">Apply</button>
+                <button onclick="resetStyle('table-card-min-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Width:</label>
+                <input type="text" id="table-card-max-width">
+                <button onclick="applyStyle('table-card', 'max-width', document.getElementById('table-card-max-width').value)">Apply</button>
+                <button onclick="resetStyle('table-card-max-width')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Height:</label>
+                <input type="text" id="table-card-height">
+                <button onclick="applyStyle('table-card', 'height', document.getElementById('table-card-height').value)">Apply</button>
+                <button onclick="resetStyle('table-card-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Min-Height:</label>
+                <input type="text" id="table-card-min-height">
+                <button onclick="applyStyle('table-card', 'min-height', document.getElementById('table-card-min-height').value)">Apply</button>
+                <button onclick="resetStyle('table-card-min-height')">Reset</button>
+            </div>
+            <div class="control-row">
+                <label>Max-Height:</label>
+                <input type="text" id="table-card-max-height">
+                <button onclick="applyStyle('table-card', 'max-height', document.getElementById('table-card-max-height').value)">Apply</button>
+                <button onclick="resetStyle('table-card-max-height')">Reset</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="canvas">
+        <div class="resize-handle resize-top"></div>
+        <div class="resize-handle resize-right"></div>
+        <div class="resize-handle resize-bottom"></div>
+        <div class="resize-handle resize-left"></div>
+        
+        <div class="panel-container">
+            <div class="panel" id="datasource">
+                <h2>1 - datasource</h2>
+                
+                <form class="dummy-form">
+                    <label>Dataset Name</label>
+                    <input type="text" placeholder="Enter dataset name">
+                    
+                    <label>Source Type</label>
+                    <select>
+                        <option>Database</option>
+                        <option>CSV File</option>
+                        <option>API</option>
+                        <option>JSON</option>
+                    </select>
+                    
+                    <label>Connection String</label>
+                    <input type="text" placeholder="Enter connection string">
+                    
+                    <label>Schema</label>
+                    <select>
+                        <option>Public</option>
+                        <option>Private</option>
+                        <option>Custom</option>
+                    </select>
+                    
+                    <label>Table Name</label>
+                    <input type="text" placeholder="Enter table name">
+                    
+                    <label>Description</label>
+                    <textarea rows="3" placeholder="Enter description"></textarea>
+                    
+                    <label>
+                        <input type="checkbox"> Enable caching
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox"> Auto-refresh
+                    </label>
+                    
+                    <button type="button">Load Data</button>
+                    <button type="button">Reset</button>
+                </form>
+            </div>
+            
+            <div class="panel" id="configure">
+                <h2>2 - configure</h2>
+                
+                <form class="dummy-form">
+                    <label>Exploration Type</label>
+                    <select>
+                        <option>Scatter Plot</option>
+                        <option>Bar Chart</option>
+                        <option>Line Graph</option>
+                        <option>Heatmap</option>
+                    </select>
+                    
+                    <label>X-Axis</label>
+                    <select>
+                        <option>Date</option>
+                        <option>Category</option>
+                        <option>Value</option>
+                    </select>
+                    
+                    <label>Y-Axis</label>
+                    <select>
+                        <option>Count</option>
+                        <option>Sum</option>
+                        <option>Average</option>
+                    </select>
+                    
+                    <label>Dimensions</label>
+                    <select>
+                        <option>Region</option>
+                        <option>Product</option>
+                        <option>Time Period</option>
+                    </select>
+                    
+                    <label>Measures</label>
+                    <select multiple>
+                        <option>Revenue</option>
+                        <option>Units Sold</option>
+                        <option>Profit Margin</option>
+                        <option>Customer Count</option>
+                    </select>
+                    
+                    <label>Aggregation</label>
+                    <select>
+                        <option>Sum</option>
+                        <option>Average</option>
+                        <option>Count</option>
+                        <option>Min/Max</option>
+                    </select>
+                    
+                    <label>Color Scheme</label>
+                    <input type="color" value="#3b82f6">
+                    
+                    <label>
+                        <input type="checkbox"> Show Legend
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox"> Enable Tooltips
+                    </label>
+                    
+                    <button type="button">Apply Configuration</button>
+                    <button type="button">Reset Defaults</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="panel" id="visualization">
+            <div class="card" id="visualization-card">
+                <div class="card-header">
+                    <h3>Visualization</h3>
+                    <button class="card-button">Download</button>
+                </div>
+                <div class="card-content">
+                    <!-- Chart content would go here -->
+                </div>
+            </div>
+            
+            <div class="card" id="table-card">
+                <div class="card-header">
+                    <h3>Data Table</h3>
+                    <button class="card-button">Download as CSV</button>
+                </div>
+                <div class="card-content">
+                    <!-- Table content would go here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="resize.js"></script>
+    <script>
+        // Store default values
+        const defaultValues = {};
+        
+        function applyStyle(elementId, property, value) {
+            if (!value || value.trim() === '') return;
+            
+            let element;
+            if (elementId === 'panel-container') {
+                element = document.querySelector('.panel-container');
+            } else {
+                element = document.getElementById(elementId);
+            }
+            
+            if (element) {
+                const camelProperty = property.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+                element.style[camelProperty] = value;
+            }
+        }
+        
+        function resetStyle(inputId) {
+            const defaultValue = defaultValues[inputId];
+            if (!defaultValue) return;
+            
+            const input = document.getElementById(inputId);
+            if (!input) return;
+            
+            // Parse the input ID to get element and property
+            const parts = inputId.split('-');
+            let elementId, property;
+            
+            if (parts[0] === 'container') {
+                elementId = 'panel-container';
+                property = parts.slice(1).join('-');
+            } else if (parts[0] === 'panel1') {
+                elementId = 'datasource';
+                property = parts.slice(1).join('-');
+            } else if (parts[0] === 'panel2') {
+                elementId = 'configure';
+                property = parts.slice(1).join('-');
+            } else if (parts[0] === 'panel3') {
+                elementId = 'visualization';
+                property = parts.slice(1).join('-');
+            }
+            
+            // Apply the default value
+            input.value = defaultValue;
+            applyStyle(elementId, property, defaultValue);
+        }
+        
+        function loadCurrentValues() {
+            const elements = {
+                'container': document.querySelector('.panel-container'),
+                'panel1': document.getElementById('datasource'),
+                'panel2': document.getElementById('configure'),
+                'panel3': document.getElementById('visualization'),
+                'viz-card': document.getElementById('visualization-card'),
+                'table-card': document.getElementById('table-card')
+            };
+            
+            const properties = ['width', 'min-width', 'max-width', 'height', 'min-height', 'max-height'];
+            
+            Object.keys(elements).forEach(key => {
+                const element = elements[key];
+                if (!element) return;
+                
+                const computedStyle = window.getComputedStyle(element);
+                
+                properties.forEach(prop => {
+                    const camelProp = prop.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+                    const value = computedStyle[camelProp];
+                    const inputId = `${key}-${prop}`;
+                    const input = document.getElementById(inputId);
+                    
+                    if (input && value) {
+                        input.value = value;
+                        defaultValues[inputId] = value;
+                    }
+                });
+            });
+        }
+        
+        // Load current values when page loads
+        window.addEventListener('DOMContentLoaded', loadCurrentValues);
+    </script>
+</body>
+</html>
+

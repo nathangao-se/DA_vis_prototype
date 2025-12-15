@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Canvas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="canvas">
+        <div class="resize-handle resize-top"></div>
+        <div class="resize-handle resize-right"></div>
+        <div class="resize-handle resize-bottom"></div>
+        <div class="resize-handle resize-left"></div>
+        
+        <div class="panel-container">
+            <div class="panel" id="datasource">
+                <h2>1 - datasource</h2>
+                
+                <form class="dummy-form">
+                    <label>Dataset Name</label>
+                    <input type="text" placeholder="Enter dataset name">
+                    
+                    <label>Source Type</label>
+                    <select>
+                        <option>Database</option>
+                        <option>CSV File</option>
+                        <option>API</option>
+                        <option>JSON</option>
+                    </select>
+                    
+                    <label>Connection String</label>
+                    <input type="text" placeholder="Enter connection string">
+                    
+                    <label>Schema</label>
+                    <select>
+                        <option>Public</option>
+                        <option>Private</option>
+                        <option>Custom</option>
+                    </select>
+                    
+                    <label>Table Name</label>
+                    <input type="text" placeholder="Enter table name">
+                    
+                    <label>Description</label>
+                    <textarea rows="3" placeholder="Enter description"></textarea>
+                    
+                    <label>
+                        <input type="checkbox"> Enable caching
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox"> Auto-refresh
+                    </label>
+                    
+                    <button type="button">Load Data</button>
+                    <button type="button">Reset</button>
+                </form>
+            </div>
+            
+            <div class="panel" id="configure">
+                <h2>2 - configure</h2>
+                
+                <form class="dummy-form">
+                    <label>Exploration Type</label>
+                    <select>
+                        <option>Scatter Plot</option>
+                        <option>Bar Chart</option>
+                        <option>Line Graph</option>
+                        <option>Heatmap</option>
+                    </select>
+                    
+                    <label>X-Axis</label>
+                    <select>
+                        <option>Date</option>
+                        <option>Category</option>
+                        <option>Value</option>
+                    </select>
+                    
+                    <label>Y-Axis</label>
+                    <select>
+                        <option>Count</option>
+                        <option>Sum</option>
+                        <option>Average</option>
+                    </select>
+                    
+                    <label>Dimensions</label>
+                    <select>
+                        <option>Region</option>
+                        <option>Product</option>
+                        <option>Time Period</option>
+                    </select>
+                    
+                    <label>Measures</label>
+                    <select multiple>
+                        <option>Revenue</option>
+                        <option>Units Sold</option>
+                        <option>Profit Margin</option>
+                        <option>Customer Count</option>
+                    </select>
+                    
+                    <label>Aggregation</label>
+                    <select>
+                        <option>Sum</option>
+                        <option>Average</option>
+                        <option>Count</option>
+                        <option>Min/Max</option>
+                    </select>
+                    
+                    <label>Color Scheme</label>
+                    <input type="color" value="#3b82f6">
+                    
+                    <label>
+                        <input type="checkbox"> Show Legend
+                    </label>
+                    
+                    <label>
+                        <input type="checkbox"> Enable Tooltips
+                    </label>
+                    
+                    <button type="button">Apply Configuration</button>
+                    <button type="button">Reset Defaults</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="panel" id="visualization">
+            <h2>3 - visualization</h2>
+        </div>
+    </div>
+    <script src="resize.js"></script>
+</body>
+</html>
+

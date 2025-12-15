@@ -1,0 +1,357 @@
+/* CSS Variables - Modify these to change all panels globally */
+:root {
+    /* Panel Global Variables */
+    --panel-bg-color: #f5f8fa;
+    --panel-border-color: #ffffff;
+    --panel-border-radius: 16px;
+    --panel-border-width: 1px;
+    --panel-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+    --panel-padding: 24px;
+    --panel-gap: 16px;
+    --panel-min-width: 300px;
+    --panel-max-width: 1200px;
+    --panel-height: 100%;
+    
+    /* Grid Variables */
+    --grid-color: #dfe7eb;
+    --grid-size: 32px;
+    
+    /* Canvas Variables */
+    --canvas-bg-color: #2c3e50;
+    --canvas-padding: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #e8eef2;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+/* Canvas - The large board container */
+.canvas {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: var(--panel-gap);
+    padding: var(--canvas-padding);
+    width: max-content;
+    min-width: calc(200px + 16px + 300px + 80px + 80px); /* panel-container min (wrapped) + gap + panel3 min + padding = 676px */
+    height: 100vh;
+    background-color: var(--canvas-bg-color);
+    overflow: auto;
+}
+
+/* Panel - Shared class for all inner panels */
+.panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    /* Global panel styling */
+    background-color: var(--panel-bg-color);
+    border: var(--panel-border-width) solid var(--panel-border-color);
+    border-radius: var(--panel-border-radius);
+    box-shadow: var(--panel-shadow);
+    padding: var(--panel-padding);
+    
+    /* Sizing */
+    min-width: var(--panel-min-width);
+    max-width: var(--panel-max-width);
+    flex: 0 0 auto;
+    
+    /* Grid background */
+    background-image:
+        linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    background-position: 0 0;
+}
+
+/* Panel headers */
+.panel h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+    padding-bottom: 16px;
+    text-transform: capitalize;
+}
+
+/* Dummy Forms */
+.dummy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+
+}
+
+.dummy-form label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 4px;
+}
+
+.dummy-form input[type="text"],
+.dummy-form input[type="color"],
+.dummy-form select,
+.dummy-form textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px;
+    border: 1px solid #dfe7eb;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: inherit;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.dummy-form select[multiple] {
+    min-height: 80px;
+}
+
+.dummy-form textarea {
+    resize: vertical;
+}
+
+.dummy-form input[type="checkbox"] {
+    margin-right: 8px;
+    width: auto;
+}
+
+.dummy-form button {
+    padding: 8px 16px;
+    border: 1px solid #dfe7eb;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dummy-form button:hover {
+    background-color: #f5f8fa;
+}
+
+.dummy-form button:active {
+    background-color: #e8eef2;
+}
+
+/* Control Area */
+.control-area {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    background-color: #ffffff;
+    border-right: 1px solid #dfe7eb;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.control-area h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.control-section {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #dfe7eb;
+}
+
+.control-section:last-child {
+    border-bottom: none;
+}
+
+.control-section h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.control-section label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #5a6c7d;
+}
+
+.control-section input {
+    width: 80px;
+    padding: 4px 8px;
+    border: 1px solid #dfe7eb;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.canvas {
+    margin-left: 280px;
+}
+
+/* Panel Container - Groups panels 1 and 2 */
+.panel-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--panel-gap);
+    flex: 1 1 auto;
+    background-color: #cc550001;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 480px;
+    min-width: 200px; /* Allow wrapping - single panel min-width */
+    height: calc(100vh - 24px); /* Full height minus canvas padding */
+    overflow-y: auto;
+    align-content: flex-start;
+    container-type: inline-size;
+}
+
+/* Individual Panel Customization Examples */
+/* Override global variables for specific panels using their IDs */
+
+#datasource {
+    flex: 1 1 0;
+    min-width: 200px;
+    height: auto;
+    background-image: none;
+    background-color: #ffffff;
+    max-width: 98%;
+    overflow-y: visible;
+}
+
+#configure {
+    flex: 1 1 0;
+    min-width: 200px;
+    height: auto;
+    background-image: none;
+    background-color: #ffffff;
+    max-width: 98%;
+    overflow-y: visible;
+}
+
+/* When side-by-side (container width >= 416px), use 100% height with individual scrollbars */
+@container (min-width: 416px) {
+    #datasource,
+    #configure {
+        height: 100%;
+        overflow-y: auto;
+    }
+}
+
+#visualization {
+    flex: 0 0 auto;
+    width: 1200px;
+    height: calc(100vh - 24px); /* Full height minus canvas padding */
+    overflow-y: auto;
+}
+
+/* Resize Handles */
+.resize-handle {
+    position: absolute;
+    background-color: transparent;
+    z-index: 10;
+}
+
+.resize-handle:hover {
+    background-color: rgba(59, 130, 246, 0.3);
+}
+
+.resize-top,
+.resize-bottom {
+    width: 100%;
+    height: 8px;
+    cursor: ns-resize;
+}
+
+.resize-left,
+.resize-right {
+    width: 8px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+.resize-top {
+    top: 0;
+    left: 0;
+}
+
+.resize-right {
+    top: 0;
+    right: 0;
+}
+
+.resize-bottom {
+    bottom: 0;
+    left: 0;
+}
+
+.resize-left {
+    top: 0;
+    left: 0;
+}
+
+/* Panel Resize Handles */
+.panel-resize-handle {
+    position: absolute;
+    background-color: transparent;
+    z-index: 5;
+}
+
+.panel-resize-handle:hover {
+    background-color: rgba(255, 165, 0, 0.3);
+}
+
+.panel-resize-top,
+.panel-resize-bottom {
+    width: 100%;
+    height: 8px;
+    cursor: ns-resize;
+}
+
+.panel-resize-left,
+.panel-resize-right {
+    width: 8px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+.panel-resize-top {
+    top: 0;
+    left: 0;
+}
+
+.panel-resize-right {
+    top: 0;
+    right: 0;
+}
+
+.panel-resize-bottom {
+    bottom: 0;
+    left: 0;
+}
+
+.panel-resize-left {
+    top: 0;
+    left: 0;
+}
+
