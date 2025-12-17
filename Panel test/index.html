@@ -369,6 +369,8 @@
         </div>
         
         <div class="panel" id="visualization">
+            <button class="scroll-nav-button" id="scroll-to-viz" style="display: none;">Visualization</button>
+            
             <div class="card" id="visualization-card">
                 <div class="card-header">
                     <h3>Visualization</h3>
@@ -388,9 +390,12 @@
                     <!-- Table content would go here -->
                 </div>
             </div>
+            
+            <button class="scroll-nav-button" id="scroll-to-table" style="display: none;">Data table</button>
         </div>
     </div>
     <script src="resize.js"></script>
+    <script src="scroll-nav.js"></script>
     <script>
         // Store default values
         const defaultValues = {};
