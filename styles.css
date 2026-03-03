@@ -48,7 +48,7 @@ body {
     gap: var(--panel-gap);
     padding: var(--canvas-padding);
     width: max-content;
-    min-width: calc(200px + 16px + 300px + 80px + 80px); /* panel-container min (wrapped) + gap + panel3 min + padding = 676px */
+    min-width: calc(296px + 16px + 480px + 24px); /* panel-container min + gap + panel3 min + padding = 816px */
     height: 80vh;
     margin-left: 200px;
     background-color: var(--canvas-bg-color);
@@ -175,6 +175,65 @@ body {
     background-color: #1d4ed8;
 }
 
+/* Toggle Switch */
+.toggle-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.toggle-label {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.toggle-label input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #94a3b8;
+    border-radius: 24px;
+    transition: 0.3s;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.toggle-label input:checked + .toggle-slider {
+    background-color: #3b82f6;
+}
+
+.toggle-label input:checked + .toggle-slider:before {
+    transform: translateX(20px);
+}
+
+.toggle-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
 /* Dummy Forms */
 .dummy-form {
     display: flex;
@@ -251,7 +310,7 @@ body {
     border-radius: 16px;
     width: 100%;
     max-width: 480px;
-    min-width: 216px; /* Allow wrapping - single panel min-width */
+    min-width: 296px; /* Allow wrapping - single panel min-width */
     height: 100%; /* Responsive to canvas height */
     overflow-y: auto;
     padding-right: 16px;
@@ -264,8 +323,9 @@ body {
 
 #datasource {
     flex: 1 1 0;
-    min-width: 200px;
+    min-width: 296px;
     height: auto;
+    align-self: flex-start;
     background-image: none;
     background-color: #ffffff;
     max-width: 98%;
@@ -274,26 +334,46 @@ body {
 
 #configure {
     flex: 1 1 0;
-    min-width: 200px;
+    min-width: 296px;
     height: auto;
+    align-self: flex-start;
     background-image: none;
     background-color: #ffffff;
     max-width: 98%;
     overflow-y: visible;
 }
 
-/* When side-by-side (container width >= 416px), use 100% height with individual scrollbars */
-@container (min-width: 416px) {
-    #datasource,
-    #configure {
+/* Layout Mode: Force Vertical Stack */
+.panel-container.force-vertical #datasource,
+.panel-container.force-vertical #configure {
+    min-width: 100%;
+    height: auto;
+    align-self: stretch;
+    overflow-y: visible;
+}
+
+/* Layout Mode: Allow Side-by-Side (224px each) */
+.panel-container.allow-side-by-side #datasource,
+.panel-container.allow-side-by-side #configure {
+    min-width: 224px;
+    height: auto;
+    align-self: flex-start;
+    overflow-y: visible;
+}
+
+/* When side-by-side mode AND container fits both panels (224 + 224 + 16 gap = 464px) */
+@container (min-width: 464px) {
+    .panel-container.allow-side-by-side #datasource,
+    .panel-container.allow-side-by-side #configure {
         height: 100%;
+        align-self: stretch;
         overflow-y: auto;
     }
 }
 
 #visualization {
     flex: 1 1 auto;
-    min-width: 800px;
+    min-width: 480px;
     max-width: 1600px;
     height: 100%;
     overflow-y: auto;

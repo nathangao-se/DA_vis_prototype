@@ -11,6 +11,17 @@
         <h3>CSS Size Controls</h3>
         
         <div class="control-group">
+            <h4>Panel Layout Mode</h4>
+            <div class="toggle-row">
+                <label class="toggle-label">
+                    <input type="checkbox" id="layout-toggle" onchange="toggleLayoutMode(this.checked)">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-text" id="layout-mode-text">Force Vertical Stack</span>
+            </div>
+        </div>
+        
+        <div class="control-group">
             <h4>Panel Container</h4>
             <div class="control-row">
                 <label>Width:</label>
@@ -480,6 +491,27 @@
         
         // Load current values when page loads
         window.addEventListener('DOMContentLoaded', loadCurrentValues);
+        
+        // Toggle between layout modes
+        function toggleLayoutMode(allowSideBySide) {
+            const container = document.querySelector('.panel-container');
+            const modeText = document.getElementById('layout-mode-text');
+            
+            if (allowSideBySide) {
+                container.classList.remove('force-vertical');
+                container.classList.add('allow-side-by-side');
+                modeText.textContent = 'Allow Side-by-Side (224px)';
+            } else {
+                container.classList.remove('allow-side-by-side');
+                container.classList.add('force-vertical');
+                modeText.textContent = 'Force Vertical Stack';
+            }
+        }
+        
+        // Initialize with force-vertical mode
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.panel-container').classList.add('force-vertical');
+        });
     </script>
 </body>
 </html>
